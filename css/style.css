@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(35, 140, 35);
+    margin: 0 auto;
+    position: relative; /** para as imagens não passarem as margens**/
+    overflow: hidden; /** Quando o conteúdo sair da margem estabelecida, ele fica invisivel**/
+    background: linear-gradient(#87CEEB, #E6F6FF);
+}
+
+.pipe {
+    position: absolute; /** Nenhum imagem interfira no compartamento da outra **/
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear; /** Animação para tubo fica correndo na tela
+                                                      Infinite: é para não parar a animação
+                                                      Linear: Movimentação (tempo)       **/
+}
+
+.mario {
+    width: 150px; /** Tamanho da imagem **/
+    position: absolute; /** Nenhum imagem interfira no compartamento da outra **/
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+.clouds {
+    width: 550px;
+    position: absolute;
+    animation: clouds-animation 20s infinite linear;
+}
+
+@keyframes pipe-animation{
+    from {
+        right: -80px; /** Esse valor é para a imagem ficar escondida
+                            e conforme começar a animação, ela aparece aos poucos **/
+    }
+
+    to {
+        right: 100%; /** Esse valor é para a imagem sumir 100% da margem **/
+    }
+}
+
+@keyframes jump {
+
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+    
+}
